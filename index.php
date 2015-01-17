@@ -56,7 +56,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = 'C:/xampp/htdocs/system2.2';
+	$system_path = '../system2.2';
 
 /*
  *---------------------------------------------------------------

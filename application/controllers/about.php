@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class About extends Application {
 
     /**
      * Index Page for this controller.
      *
      * Maps to the following URL
-     *      http://example.com/index.php/welcome
-     *  - or -
-     *      http://example.com/index.php/welcome/index
-     *  - or -
+     *         http://example.com/index.php/welcome
+     *    - or -
+     *         http://example.com/index.php/welcome/index
+     *    - or -
      * Since this controller is set as the default controller in
      * config/routes.php, it's displayed at http://example.com/
      *
@@ -19,7 +19,9 @@ class Welcome extends CI_Controller {
      */
     public function index()
     {
-        $this->load->view('about');
+        $this->data['pagetitle'] = 'About The Gallery';
+        $this->data['pagebody'] = 'about';
+        $this->render();
     }
 }
 
