@@ -19,8 +19,32 @@ class Welcome extends Application {
      */
     public function index()
     {
+        // get the 3 newest images from our model
+        $pictures = $this->images->newest();
+
+        // build an array of formatted cells for the pictures
+        foreach($pictures as $picture)
+        {
+            $cells[] = $this->parser->parse('_cell',(array)$picture,true);
+        }
+
+        // prime the table class
+        $this->load->library('table');
+        $params = array(
+            'table_open' => '<table class="gallery">',
+            'cell_start' => '<td class="oneimage">',
+            'cell_alt_start' => '<td class="oneimage">'
+            );
+        $this->table->set_template($params);
+
+        // generate the table
+        $rows = $this->table->make_columns($cells,3);
+
+        // set some data parameters
+        $this->data['thetable'] = $this->table->generate($rows);
         $this->data['pagetitle'] = 'Simple Image Gallery';
         $this->data['pagebody'] = 'welcome';
+
         $this->render();
     }
 }
