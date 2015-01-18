@@ -32,22 +32,13 @@
  * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	http://codeigniter.com
- * @since	Version 1.0.0
+ * @since	Version 3.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| -------------------------------------------------------------------------
-| Hooks
-| -------------------------------------------------------------------------
-| This file lets you define "hooks" to extend CI without hacking the core
-| files.  Please see the user guide for info:
-|
-|	http://codeigniter.com/user_guide/general/hooks.html
-|
-*/
-
-
-/* End of file hooks.php */
-/* Location: ./application/config/hooks.php */
+echo "\nDatabase error: ",
+	$heading,
+	"\n\n",
+	$message,
+	"\n\n";

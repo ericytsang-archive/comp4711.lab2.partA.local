@@ -32,22 +32,30 @@
  * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
  * @license	http://opensource.org/licenses/MIT	MIT License
  * @link	http://codeigniter.com
- * @since	Version 1.0.0
+ * @since	Version 3.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 
-/*
-| -------------------------------------------------------------------------
-| Hooks
-| -------------------------------------------------------------------------
-| This file lets you define "hooks" to extend CI without hacking the core
-| files.  Please see the user guide for info:
-|
-|	http://codeigniter.com/user_guide/general/hooks.html
-|
-*/
+An uncaught Exception was encountered
 
+Type: <?php echo get_class($exception); ?>
+Message: <?php echo $message; ?>
+Filename: <?php echo $exception->getFile(); ?>
+Line Number: <?php echo $exception->getLine(); ?>
 
-/* End of file hooks.php */
-/* Location: ./application/config/hooks.php */
+<?php if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE === TRUE): ?>
+
+Backtrace:
+	<?php foreach ($exception->getTrace() as $error): ?>
+		<?php if (isset($error['file']) && strpos($error['file'], realpath(BASEPATH)) !== 0): ?>
+
+	File: <?php echo $error['file']; ?>
+	Line: <?php echo $error['line']; ?>
+	Function: <?php echo $error['function']; ?>
+
+		<?php endif ?>
+
+	<?php endforeach ?>
+<?php endif ?>
